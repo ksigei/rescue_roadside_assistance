@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Motorist Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">Profile</h1>
+        <!-- if it is a user, then add link to update profile, else add link to request service from motorist -->
+        {% if user.is_authenticated %}
+        <!-- If authenticated, add a link to update the profile -->
+        <p><a href="{% url 'update_motorist_profile' %}">Update Profile</a></p>
+        {% endif %}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Location</h5>
+            <p class="card-text">{{ motorist.location }}</p>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Phone Number</h5>
+            <p class="card-text">{{ motorist.phone_number }}</p>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Email</h5>
+            <p class="card-text">{{ motorist.email }}</p>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Profile Picture</h5>
+            <img src="{{ motorist.profile_picture.url }}" class="card-img-top" alt="Profile Picture">
+        </div>
+    </div>
+</div>
+{% endblock %}
