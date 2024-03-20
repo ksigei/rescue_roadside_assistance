@@ -11,4 +11,4 @@ def update_motorist_profile(request):
             return redirect('home') 
     else:
         form = MotoristProfileForm(instance=motorist)
-    return render(request, 'motorist/update_profile.html', {'form': form})
+    return render(request, 'profile/update_profile.html', {'form': form})

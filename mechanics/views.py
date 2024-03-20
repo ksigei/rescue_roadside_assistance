@@ -11,4 +11,4 @@ def update_mechanic_profile(request):
             return redirect('home')  
     else:
         form = MechanicProfileForm(instance=mechanic)
-    return render(request, 'mechanic/update_profile.html', {'form': form})
+    return render(request, 'profile/update_profile.html', {'form': form})
