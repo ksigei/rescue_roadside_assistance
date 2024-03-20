@@ -1,0 +1,2 @@
+django-location-field==2.7.3
+pillow==10.2.0
