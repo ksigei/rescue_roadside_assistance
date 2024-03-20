@@ -20,7 +20,9 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="uil uil-search"></i>
+                    Search</button>
             </div>
         </div>
     </form>
@@ -35,18 +37,30 @@
                         {{ mechanic.user.username|first }}
                     </div>
                 {% endif %}
-                <div>
-                    <h5 class="mb-0">{{ mechanic.user.username }}</h5>
-                    <p class="mb-0">{{ mechanic.specializations }}</p>
-                    <p class="mb-0">Location: {{ mechanic.location }}</p>
+                <div class="mechanic-details">
+                    <h5 class="mb-2">{{ mechanic.user.username }}</h5>
+                    <p><strong>
+                        <i class="uil uil-wrench"></i>
+                        Specialization:</strong> {{ mechanic.specializations }}</p>
+                    <p><strong>
+                        <i class="uil uil-map-marker"></i>
+                        Location:</strong> {{ mechanic.location }}</p>
+                    <p><a href="{% url 'mechanic_detail' mechanic.id %}">
+                        <i class="uil uil-eye"></i>
+                        View Profile</a></p>
                 </div>
+                
             </div>
             <div>
-                <a href="{% url 'request_assistance' mechanic.id %}" class="btn btn-success">Ask for Service</a>
+                <a href="{% url 'request_assistance' mechanic.id %}" class="btn btn-success">
+                    <i class="uil uil-wrench"></i>
+                    Ask for Service</a>
             </div>
         </li>
         {% empty %}
-        <li class="list-group-item">No mechanics found.</li>
+        <li class="list-group-item">
+            <i class="uil uil-info-circle me-2"></i>
+            No mechanics found.</li>
         {% endfor %}
     </ul>
 {% endblock %}

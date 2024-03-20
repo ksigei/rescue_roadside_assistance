@@ -1,6 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Motorist
 from .forms import MotoristProfileForm
+
+def motorist_profile(request, motorist_id):
+    motorist = get_object_or_404(Motorist, id=motorist_id)
+    return render(request, 'profile/motorist_profile.html', {'motorist': motorist})
 
 def update_motorist_profile(request):
     motorist = Motorist.objects.get(user=request.user)

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Mechanic Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">{{ mechanic.user.username }}</h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    {% if mechanic.profile_picture %}
+                        <img src="{{ mechanic.profile_picture.url }}" alt="{{ mechanic.user.username }}" class="img-fluid rounded-circle mb-3">
+                    {% else %}
+                        <div class="rounded-circle bg-secondary text-light text-center p-3" style="font-size: 3rem;">
+                            {{ mechanic.user.username|first }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Specialization:</strong> {{ mechanic.specializations }}</p>
+                    <p><strong>Location:</strong> {{ mechanic.location }}</p>
+                    <p><strong>Email:</strong> {{ mechanic.email }}</p>
+                    <p><strong>Phone Number:</strong> {{ mechanic.phone_number }}</p>
+                    <div class="btn-group" role="group">
+                        <a href="tel:{{ mechanic.phone_number }}" class="btn btn-primary">
+                            <i class="uil uil-phone"></i>
+                            Call</a>
+                            <a href="https://wa.me/{{ mechanic.phone_number }}?text=Hello%20there,%20I%20need%20your%20assistance.%20My%20Vehicle%20broke%20down" class="btn btn-success">
+                                <i class="uil uil-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            
+                            <a href="{% url 'request_assistance' mechanic.id %}" class="btn btn-info">
+                            <i class="uil uil-wrench"></i>
+                                Ask for Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

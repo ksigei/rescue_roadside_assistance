@@ -8,16 +8,21 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- UI Icons Library CSS -->
-    <link rel="stylesheet" href="https://cdn.uicons.com/libs/1.0.0-beta.1/css/uicons-compat.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- <link rel="stylesheet" href="https://cdn.uicons.com/libs/1.0.0-beta.1/css/uicons-compat.css"> -->
 
     <!-- Custom styles for this template -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">Rescue Roadside Assistance</a>
+            <a class="navbar-brand" href="#">RRA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,8 +30,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="uil uil-home-alt"></i>
+                        <a class="nav-link" href="/">
+                            <i class="uil uil-home"></i>
                             Home</a>
                     </li>
                     <li class="nav-item">
@@ -53,13 +58,23 @@
                                 <a class="nav-link" href="#">Admin</a>
                             {% endif %}
                             {% if mechanic %}
-                                <a class="nav-link" href="{% url 'mechanic_profile' mechanic.id %}"> 
+                                  <a class="nav-link" href="{% url 'mechanic_dashboard' %}">
+                                    <i class="uil uil-dashboard"></i>
+                                    Dashboard</a>
+                                  <a class="nav-link" href="{% url 'mechanic_profile' mechanic.id %}"> 
                                     Mechanic, {{ user.username }}
                                 </a>
+                                 
                             {% endif %}
                             {% if motorist %}
-                                <a class="nav-link" href="#">Motorist</a>
+                                <a class="nav-link" href="{% url 'motorist_dashboard' %}">
+                                    <i class="uil uil-dashboard"></i>
+                                    Dashboard</a>
+                                <a class="nav-link" href="{% url 'motorist_profile' motorist.id %}"> 
+                                    Motorist, {{ user.username }}
+                                </a>
                             {% endif %}
+                          
                         {% else %}
                             <a class="nav-link" href="{% url 'login' %}">Login</a>
                         {% endif %}

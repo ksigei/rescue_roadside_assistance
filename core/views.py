@@ -3,20 +3,20 @@ from mechanics.models import Mechanic
 from motorist.models import Motorist
 
 def home(request):
+    context = {}  
+    
     if request.user.is_authenticated:
         try:
             mechanic = Mechanic.objects.get(user=request.user)
-            context = {'mechanic': mechanic}
+            context['mechanic'] = mechanic 
         except Mechanic.DoesNotExist:
             mechanic = None
         
         try:
             motorist = Motorist.objects.get(user=request.user)
-            context = {'motorist': motorist}
+            context['motorist'] = motorist 
         except Motorist.DoesNotExist:
             motorist = None
 
-        # return render(request, 'home.html', context)
-        return render(request, 'home.html')
-    else:
-        return render(request, 'home.html')
+    return render(request, 'home.html', context)
+

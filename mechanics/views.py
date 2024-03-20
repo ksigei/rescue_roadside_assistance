@@ -18,6 +18,9 @@ def mechanic_list(request):
     }
     return render(request, 'mechanic_list.html', context)
 
+def mechanic_detail(request, mechanic_id):
+    mechanic = get_object_or_404(Mechanic, pk=mechanic_id)
+    return render(request, 'mechanic_detail.html', {'mechanic': mechanic})
 
 def mechanic_profile(request, mechanic_id):
     mechanic = get_object_or_404(Mechanic, id=mechanic_id)

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Create Assistance Response{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Assistance Response</h1>
+    <h2>Request: {{ assistance_request }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

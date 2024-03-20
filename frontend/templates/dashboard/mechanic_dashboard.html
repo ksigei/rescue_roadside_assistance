@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mechanic Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome, {{ mechanic.user.username }}</h1>
+    <p>Location: {{ mechanic.location }}</p>
+    <p>Phone Number: {{ mechanic.phone_number }}</p>
+    <p>Email: {{ mechanic.email }}</p>
+    
+    <h2>Assistance Requests</h2>
+    <div class="row">
+        {% for request in assistance_requests %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    Request ID: {{ request.id }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Incurred Problem: {{ request.incurred_problem }}</h5>
+                    <p class="card-text">Description: {{ request.description }}</p>
+                    <p class="card-text">Location: {{ request.location }}</p>
+                    {% if request.image %}
+                    <img src="{{ request.image.url }}" class="img-fluid" alt="Assistance Request Image">
+                    {% endif %}
+                    <p class="card-text">Confirmed: {% if request.is_confirmed %} Yes {% else %} No {% endif %}</p>
+                </div>
+                <div class="card-footer">
+                    {% if request.is_confirmed %}
+                        <p class="text-success">This request is confirmed.</p>
+                    {% else %}
+                        <p class="text-warning">This request is pending confirmation.</p>
+                    {% endif %}
+                    <a href="{% url 'respond_to_request' request.id %}" class="btn btn-primary">
+                        <i class="uil uil-wrench"></i>
+                        Respond</a>
+                    <a href="{% url 'assistance_responses' request.id %}" class="btn btn-info">
+                        <i class="uil uil-eye"></i>
+                        View Responses</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <p>No assistance requests found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

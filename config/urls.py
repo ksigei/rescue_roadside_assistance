@@ -25,6 +25,7 @@ urlpatterns = [
     path('motorist/', include('motorist.urls')), 
     path('mechanics/', include('mechanics.urls')),
     path('assistance/', include('assistance.urls')),
+    path('dashboard/', include('dashboard.urls')),
     path('', include('core.urls')),
 ]
 
