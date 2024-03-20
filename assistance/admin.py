@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import AssistanceRequest
 
 class AssistanceRequestAdmin(admin.ModelAdmin):
-    list_display = ('user', 'mechanic', 'location', 'is_confirmed')
+    list_display = ('user', 'mechanic', 'location', 'incurred_problem','is_confirmed')
     list_filter = ('is_confirmed',)
     search_fields = ('user__username', 'mechanic__name', 'description')
 

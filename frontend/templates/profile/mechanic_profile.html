@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Mechanic Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">Profile</h1>
+        <!-- if it is a user, then add link to update profile, else add link to request service from mechanic -->
+        {% if user.is_authenticated %}
+        <!-- If authenticated, add a link to update the profile -->
+        <p><a href="{% url 'update_mechanic_profile' %}">Update Profile</a></p>
+    {% else %}
+        <!-- If not authenticated, add a link to request service from mechanic -->
+        <p><a href="{% url 'request_assistance' mechanic.id %}">Request Assistance</a></p>
+    {% endif %}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Location</h5>
+            <p class="card-text">{{ mechanic.location }}</p>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Phone Number</h5>
+            <p class="card-text">{{ mechanic.phone_number }}</p>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Email</h5>
+            <p class="card-text">{{ mechanic.email }}</p>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Profile Picture</h5>
+            <img src="{{ mechanic.profile_picture.url }}" class="card-img-top" alt="Profile Picture">
+        </div>
+    </div>
+</div>
+{% endblock %}
