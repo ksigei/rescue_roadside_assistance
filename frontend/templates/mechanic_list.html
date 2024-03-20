@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Mechanics{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Mechanics</h1>
+    <form method="GET" action="">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="q" placeholder="Search by name">
+            </div>
+            <div class="col-md-4">
+                <select class="form-select" name="specialization">
+                    <option value="">All Specializations</option>
+                    <option value="Flat Tire">Flat Tire</option>
+                    <option value="Battery Issues">Battery Issues</option>
+                    <option value="Engine Trouble">Engine Trouble</option>
+                    <option value="Fuel Problem">Fuel Problem</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+    <ul class="list-group">
+        {% for mechanic in mechanics %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                {% if mechanic.profile_picture %}
+                    <img src="{{ mechanic.profile_picture.url }}" alt="{{ mechanic.user.username }}" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+                {% else %}
+                    <div class="rounded-circle bg-secondary text-light text-center me-3" style="width: 50px; height: 50px; line-height: 50px;">
+                        {{ mechanic.user.username|first }}
+                    </div>
+                {% endif %}
+                <div>
+                    <h5 class="mb-0">{{ mechanic.user.username }}</h5>
+                    <p class="mb-0">{{ mechanic.specializations }}</p>
+                    <p class="mb-0">Location: {{ mechanic.location }}</p>
+                </div>
+            </div>
+            <div>
+                <a href="{% url 'request_assistance' mechanic.id %}" class="btn btn-success">Ask for Service</a>
+            </div>
+        </li>
+        {% empty %}
+        <li class="list-group-item">No mechanics found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

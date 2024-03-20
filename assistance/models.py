@@ -13,6 +13,8 @@ class AssistanceRequest(models.Model):
         ('Other', 'Other'),
     ]
 
+    # vehicles details
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     mechanic = models.ForeignKey(Mechanic, on_delete=models.CASCADE)
