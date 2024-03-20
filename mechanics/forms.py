@@ -4,4 +4,4 @@ from .models import Mechanic
 class MechanicProfileForm(forms.ModelForm):
     class Meta:
         model = Mechanic
-        fields = ['location', 'phone_number', 'email', 'profile_picture']
+        fields = ['specializations', 'location', 'phone_number', 'email', 'profile_picture']

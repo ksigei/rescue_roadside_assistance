@@ -16,6 +16,7 @@ def home(request):
         except Motorist.DoesNotExist:
             motorist = None
 
-        return render(request, 'home.html', context)
+        # return render(request, 'home.html', context)
+        return render(request, 'home.html')
     else:
         return render(request, 'home.html')

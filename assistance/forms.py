@@ -4,11 +4,11 @@ from .models import AssistanceRequest, AssistanceResponse
 class AssistanceRequestForm(forms.ModelForm):
     class Meta:
         model = AssistanceRequest
-        fields = ['description', 'location', 'incurred_problem', 'image']
+        fields = ['incurred_problem', 'description', 'location', 'image']
         labels = {
+            'incurred_problem': ' incurred_problem',
             'description': 'Description',
             'location': 'Location',
-            'incurred_problem': ' incurred_problem',
             'image': 'Image (optional)',
         }
         widgets = {
