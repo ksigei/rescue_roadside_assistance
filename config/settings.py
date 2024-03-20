@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'location_field.apps.DefaultConfig',
     'accounts',
+    'core',
     'assistance',
     'dashboard',
     'feedback',
@@ -47,7 +48,7 @@ INSTALLED_APPS = [
     'notify',
     'payment',
     'support',
-    'motorist'
+    'motorist',
 ]
 
 MIDDLEWARE = [

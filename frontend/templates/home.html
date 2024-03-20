@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1>Welcome to Rescue Roadside Assistance</h1>
+                <p class="lead">We're here to provide reliable roadside assistance whenever you need it.</p>
+                <a href="#get-started" class="btn btn-primary btn-lg">Get Started</a>
+            </div>
+            <div class="col-lg-6">
+                <!-- <img src="{% static 'images/portrait-garage-mechanic-professional-worker-car-engine-service-looking-camera-smile_43300-4276.jpg' %}" class="img-fluid" alt="Roadside Assistance"> -->
+                  <img src="https://cdn.pixabay.com/photo/2012/04/16/13/56/oil-change-36096_1280.png" class="img-fluid" alt="Roadside Assistance">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <h2>Key Features</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <i class="uil uil-car"></i>
+                    <h3>24/7 Assistance</h3>
+                    <p>Our service is available round the clock to assist you whenever you need it.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <i class="uil uil-map"></i>
+                    <h3>Nationwide Coverage</h3>
+                    <p>We have a wide network of mechanics across the country to provide coverage wherever you are.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <i class="uil uil-star"></i>
+                    <h3>Trusted Service</h3>
+                    <p>Thousands of satisfied customers trust us for their roadside assistance needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works">
+    <div class="container">
+        <h2>How It Works</h2>
+        <div class="row">
+            <!-- Add steps or infographic illustrating the process -->
+        </div>
+    </div>
+</section>
+
+<!-- Get Started Section -->
+<section id="get-started" class="get-started">
+    <div class="container">
+        <h2>Get Started</h2>
+        <p>Sign up today to access our roadside assistance services and enjoy peace of mind on the road.</p>
+        <a href="{% url 'register' %}" class="btn btn-primary btn-lg">Sign Up</a>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>About Us</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut mauris nec lacus accumsan rutrum.</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Contact Us</h4>
+                <p>Email: info@example.com<br>Phone: 123-456-7890</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="social-icons">
+                    <li><a href="#" class="uil uil-facebook-f"></a></li>
+                    <li><a href="#" class="uil uil-twitter"></a></li>
+                    <li><a href="#" class="uil uil-instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&copy; 2024 Rescue Roadside Assistance. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<style>
+    /* styles.css */
+
+/* Custom styles for the home page */
+.hero {
+    padding: 100px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.features {
+    padding: 80px 0;
+}
+
+.features h2 {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.features .feature-item {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.features .feature-item i {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.how-it-works {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    margin-bottom: 50px;
+}
+
+.get-started {
+    padding: 80px 0;
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+}
+
+.get-started h2 {
+    margin-bottom: 50px;
+}
+
+.get-started .btn-primary {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.footer {
+    padding: 50px 0;
+    background-color: #343a40;
+    color: #fff;
+}
+
+.footer h4 {
+    margin-bottom: 30px;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.social-icons li a {
+    font-size: 24px;
+    color: #fff;
+}
+
+.social-icons li:last-child {
+    margin-right: 0;
+}
+
+</style>
+{% endblock %}
